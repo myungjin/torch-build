@@ -14,7 +14,7 @@ export CMAKE_BUILD_TYPE=Release
 
 # CUDA
 export USE_CUDA=1
-export TORCH_CUDA_ARCH_LIST="8.0"                 # A100. Set to 7.5 for qgpu
+export TORCH_CUDA_ARCH_LIST="5.2 7.0 7.5 8.0"                 # A100. Set to 7.5 for qgpu
 # Faster recompilation
 export USE_PRECOMPILED_HEADERS=1
 export USE_PER_OPERATOR_HEADERS=1
@@ -28,16 +28,16 @@ export USE_FBGEMM=1                               # GEMMs
 export BUILD_TEST=0                               # C++ tests
 export BUILD_CAFFE2=0                             # caffe2
 export BUILD_CAFFE2_OPS=0                         # caffe2
-export USE_DISTRIBUTED=0                          # distributed
-export USE_NCCL=0                                 # distributed
-export USE_GLOO=0                                 # distributed
+export USE_DISTRIBUTED=1                          # distributed
+export USE_NCCL=1                                 # distributed
+export USE_GLOO=1                                 # distributed
 export USE_QNNPACK=0                              # quantized
 export USE_XNNPACK=0                              # quantized
 # Disable these unless you are going to benchmark them
 export USE_FLASH_ATTENTION=0
 export USE_MEM_EFF_ATTENTION=0
 
-
+export _GLIBCXX_USE_CXX11_ABI=1
 
 # cmake from conda
 export CMAKE_PREFIX_PATH=$CONDA_PREFIX
